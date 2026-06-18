@@ -194,3 +194,122 @@ def my_function(title, *args, **kwargs):
 - Sets: unique values + math operations
 - Dictionaries: key-value storage
 - Functions: support flexible arguments (*args, **kwargs)
+
+
+
+
+# 📘 Python Day 2 — File Handling Report
+
+## 1. Opening and Reading Files
+
+Python allows reading files using `open()` and displaying content with `.read()`.
+
+### Basic file read
+f = open("File-Handling/week-01-Python-Report.txt")
+print(f.read())
+f.close()
+
+- Opens a file in read mode (default)
+- Reads full content of the file
+- Must be manually closed using `close()`
+
+---
+
+### Using `with open()` (recommended)
+with open("File-Handling/week-01-Python-Report.txt") as myFile:
+    print(myFile.read())
+
+- Automatically closes the file after execution
+- No need to call `close()`
+
+---
+
+### Reading limited characters
+with open("File-Handling/week-01-Python-Report.txt") as myFile:
+    print(myFile.read(100))
+
+- Reads only first 100 characters
+
+---
+
+## 2. Reading Line by Line
+
+### Using readline()
+f = open("File-Handling/week-01-Python-Report.txt")
+print(f.readline())
+print(f.readline())
+f.close()
+
+- Reads file line by line
+
+---
+
+### Looping through file
+f = open("File-Handling/week-01-Python-Report.txt")
+for x in f:
+    print(x)
+f.close()
+
+- Efficient way to read all lines one by one
+
+---
+
+## 3. Writing to Files
+
+### Append mode ("a")
+with open("File-Handling/week-01-Python-Report.txt", "a") as myFile:
+    myFile.write("Hello this line has been appended")
+
+- Adds content at the end of file
+- Does not overwrite existing content
+
+---
+
+### Write mode ("w")
+with open("File-Handling/write-test.txt", "w") as myFile:
+    myFile.write("This will overwrite existing content")
+
+- Creates file if it doesn't exist
+- Overwrites existing content
+
+---
+
+## 4. Creating Files
+
+newFile = open("File-Handling/new-file.txt", "x")
+newFile.close()
+
+- `"x"` mode creates a new file
+- Gives error if file already exists
+
+---
+
+## 5. Deleting Files and Folders
+
+### Delete file
+import os
+os.remove("File-Handling/new-file.txt")
+
+- Removes a specific file
+
+---
+
+### Delete folder
+import os
+os.rmdir("myfolder")
+
+- Removes an empty folder only
+
+---
+
+## 🎯 Summary
+
+- `open()` is used for file handling in Python
+- `with open()` is preferred because it auto-closes files
+- File modes:
+  - `"r"` → read
+  - `"a"` → append
+  - `"w"` → write (overwrite)
+  - `"x"` → create
+- Always manage files carefully to avoid data loss
+- `os` module is used for deleting files and directories
