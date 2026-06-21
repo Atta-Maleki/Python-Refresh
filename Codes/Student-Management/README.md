@@ -96,7 +96,7 @@ git clone <repository-url>
 Navigate to the project directory:
 
 ```bash
-cd Student-Management-System
+cd Student-Management
 ```
 
 Run the application:
